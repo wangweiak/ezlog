@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("ezlog", "for ezlog support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("ezlog", "enable ezlog support", "no");
+
+if (PHP_EZLOG != "no") {
+	EXTENSION("ezlog", "ezlog.c");
+}
+
