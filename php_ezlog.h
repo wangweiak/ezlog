@@ -38,16 +38,21 @@ extern zend_module_entry ezlog_module_entry;
 #include "TSRM.h"
 #endif
 
-/* 
-  	Declare any global variables you may need between the BEGIN
-	and END macros here:     
 
 ZEND_BEGIN_MODULE_GLOBALS(ezlog)
-	long  global_value;
-	char *global_string;
+	zend_bool onmemcache;
+	zend_bool onfile;
+        zend_bool onredis;
+        char *memcachehost;
+        unsigned long memcacheport;
+        char *filepath;
+        char *redishost;
+        char *redisport;
 ZEND_END_MODULE_GLOBALS(ezlog)
-*/
 
+char *getCurTime();
+void getUri(char **uri TSRMLS_DC);
+char *getData(char * TSRMLS_DC);
 /* In every utility function you add that needs to use variables 
    in php_ezlog_globals, call TSRMLS_FETCH(); after declaring other 
    variables used by that function, or better yet, pass in TSRMLS_CC
@@ -63,6 +68,8 @@ ZEND_END_MODULE_GLOBALS(ezlog)
 #else
 #define EZLOG_G(v) (ezlog_globals.v)
 #endif
+
+extern ZEND_DECLARE_MODULE_GLOBALS(ezlog);
 
 #endif	/* PHP_EZLOG_H */
 
