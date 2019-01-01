@@ -7,9 +7,9 @@ dnl without editing.
 
 dnl If your extension references something external, use with:
 
-dnl PHP_ARG_WITH(ezlog, for ezlog support,
-dnl Make sure that the comment is aligned:
-dnl [  --with-ezlog             Include ezlog support])
+PHP_ARG_WITH(ezlog, for ezlog support,
+Make sure that the comment is aligned:
+[  --with-ezlog             Include ezlog support])
 
 dnl Otherwise use enable:
 
